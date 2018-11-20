@@ -12,15 +12,16 @@ def notify():
     Hello = Notify.Notification.new('Ça va', 'Le minuteur est fini')
     Hello.show()
 
+def getInput():
+    time = input('How long would you like to set the timer for?\n')
+    return int(time)
+
 def startCountdown(t):
-    while t:
-        # minutes = t * 60
-        minutes = t / 60
-        print(minutes)
+    minutes = t * 60
+    while minutes:
         time.sleep(1)
-        t -= 1
+        minutes -= 1
         #print(time.localtime().tm_hour)
     notify()
 
-startCountdown(25)
-# notify()
+startCountdown(getInput())
